@@ -1981,6 +1981,15 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       return text;
+    },
+    getDatePost: function getDatePost(dateString) {
+      var date = new Date(dateString);
+      var day = date.getDate();
+      var month = date.getMonth() + 1;
+      var year = date.getFullYear();
+      if (day < 10) day = '0' + day;
+      if (month < 10) month = '0' + month;
+      return "".concat(day, "/").concat(month, "/").concat(year);
     }
   }
 });
@@ -2556,7 +2565,9 @@ var render = function () {
           ]),
         ]),
         _vm._v(" "),
-        _c("span", { staticClass: "date" }, [_vm._v(_vm._s(post.created_at))]),
+        _c("span", { staticClass: "date" }, [
+          _vm._v(_vm._s(_vm.getDatePost(post.created_at))),
+        ]),
         _vm._v(" "),
         _c("p", [_vm._v(_vm._s(_vm.truncatesTextAt(post.content, 50)))]),
       ])
