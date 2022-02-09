@@ -1961,6 +1961,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Posts',
   mounted: function mounted() {
@@ -2585,9 +2595,35 @@ var render = function () {
         ])
       }),
       _vm._v(" "),
-      _c("button", { staticClass: "btn" }, [_vm._v("Prev")]),
-      _vm._v(" "),
-      _c("button", { staticClass: "btn" }, [_vm._v("Next")]),
+      _c("div", { staticClass: "navigation" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn",
+            attrs: { disabled: _vm.pagination.current === 1 },
+            on: {
+              click: function ($event) {
+                return _vm.getPosts(_vm.pagination.current - 1)
+              },
+            },
+          },
+          [_vm._v("Prev")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "btn",
+            attrs: { disabled: _vm.pagination.current === _vm.pagination.last },
+            on: {
+              click: function ($event) {
+                return _vm.getPosts(_vm.pagination.current + 1)
+              },
+            },
+          },
+          [_vm._v("Next")]
+        ),
+      ]),
     ],
     2
   )
@@ -2656,7 +2692,11 @@ var staticRenderFns = [
       _c("ul", [
         _c("li", [_c("a", { attrs: { href: "" } }, [_vm._v("Home")])]),
         _vm._v(" "),
-        _c("li", [_c("a", { attrs: { href: "" } }, [_vm._v("Blog")])]),
+        _c("li", [
+          _c("a", { staticClass: "active", attrs: { href: "" } }, [
+            _vm._v("Blog"),
+          ]),
+        ]),
         _vm._v(" "),
         _c("li", [_c("a", { attrs: { href: "" } }, [_vm._v("Chi Siamo")])]),
         _vm._v(" "),

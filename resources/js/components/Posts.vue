@@ -10,8 +10,18 @@
          <p>{{ truncatesTextAt(post.content, 50) }}</p>
       </article>
 
-      <button class="btn">Prev</button>
-      <button class="btn">Next</button>
+      <div class="navigation">
+         <button 
+            @click="getPosts(pagination.current - 1)"
+            :disabled="pagination.current === 1"
+            class="btn"
+         >Prev</button>
+         <button 
+            @click="getPosts(pagination.current + 1)"
+            class="btn"
+            :disabled="pagination.current === pagination.last"
+         >Next</button>
+      </div>
       
    </main>
 </template>

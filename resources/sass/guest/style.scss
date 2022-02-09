@@ -18,10 +18,13 @@ body {
    font-family: monospace;
    font-size: 1.4em;
    transition: all .3s;
-   &:hover {
-      color: #fff;
-      background-color: #23272E;
-      outline: 2px solid #fff;
+   .active {
+
+      &:hover {
+         color: #fff;
+         background-color: #23272E;
+         outline: 2px solid #fff;
+      }
    }
 }
 
@@ -35,7 +38,8 @@ header {
          padding: 20px 0;
          a {
             @include reset-a;
-            &:hover {
+            &:hover,
+            &.active {
                text-decoration: underline;
             }
          }

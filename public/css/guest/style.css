@@ -28,7 +28,7 @@ body {
   transition: all 0.3s;
 }
 
-.btn:hover {
+.btn .active:hover {
   color: #fff;
   background-color: #23272E;
   outline: 2px solid #fff;
@@ -55,7 +55,8 @@ header ul li a {
   color: #23272E;
 }
 
-header ul li a:hover {
+header ul li a:hover,
+header ul li a.active {
   text-decoration: underline;
 }
 
