@@ -4,9 +4,9 @@
          v-for="post in posts"
          :key = "post.id"
       >
-         <h2><a href="">{{ post.title.substr(0, 20) + '...' }}</a></h2>
+         <h2><a href="">{{ truncatesTextAt(post.title, 20) }}</a></h2>
          <span class="date">{{ post.created_at }}</span>
-         <p>{{ post.content.substr(0, 50) + '...'}}</p>
+         <p>{{ truncatesTextAt(post.content, 50) }}</p>
       </article>
    </main>
 </template>
@@ -29,6 +29,12 @@ export default {
             .then(response => {
                this.posts = response.data;
             })
+      },
+      truncatesTextAt(text, numberChars) {
+         if (text.length > numberChars) {
+            return text.substr(0, numberChars) + ' ...';
+         }
+         return text;
       }
    }
 }

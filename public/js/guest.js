@@ -1974,6 +1974,13 @@ __webpack_require__.r(__webpack_exports__);
       axios.get(this.apiUrl).then(function (response) {
         _this.posts = response.data;
       });
+    },
+    truncatesTextAt: function truncatesTextAt(text, numberChars) {
+      if (text.length > numberChars) {
+        return text.substr(0, numberChars) + ' ...';
+      }
+
+      return text;
     }
   }
 });
@@ -2545,13 +2552,13 @@ var render = function () {
       return _c("article", { key: post.id }, [
         _c("h2", [
           _c("a", { attrs: { href: "" } }, [
-            _vm._v(_vm._s(post.title.substr(0, 20) + "...")),
+            _vm._v(_vm._s(_vm.truncatesTextAt(post.title, 20))),
           ]),
         ]),
         _vm._v(" "),
         _c("span", { staticClass: "date" }, [_vm._v(_vm._s(post.created_at))]),
         _vm._v(" "),
-        _c("p", [_vm._v(_vm._s(post.content.substr(0, 50) + "..."))]),
+        _c("p", [_vm._v(_vm._s(_vm.truncatesTextAt(post.content, 50)))]),
       ])
     }),
     0
