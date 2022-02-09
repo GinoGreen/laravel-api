@@ -16,22 +16,5 @@ export default {
 </script>
 
 <style lang="scss">
-   header {
-      background-color: white;
-      ul {
-         list-style: none;
-         display: flex;
-         li {
-            margin: 0 20px;
-            padding: 20px 0;
-            a {
-               text-decoration: none;
-               color: #23272E;
-               &:hover {
-                  text-decoration: underline;
-               }
-            }
-         }
-      }
-   }
+
 </style>
