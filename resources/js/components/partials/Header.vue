@@ -20,7 +20,6 @@ export default {
       background-color: white;
       ul {
          list-style: none;
-         font-size: 2em;
          display: flex;
          li {
             margin: 0 20px;

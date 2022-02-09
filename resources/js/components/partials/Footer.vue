@@ -1,6 +1,6 @@
 <template>
    <footer>
-      <h1>-Boolpress-</h1>
+      <h4>-Boolpress-</h4>
    </footer>
 </template>
 
@@ -18,7 +18,7 @@ export default {
       width: 100%;
       background-color: white;
       
-      h1 {
+      h4 {
          text-align: center;
          padding: 20px 0;
          color: #23272E;
