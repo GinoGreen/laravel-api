@@ -1956,6 +1956,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Posts',
   mounted: function mounted() {
@@ -1963,16 +1968,22 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      apiUrl: 'http://127.0.0.1:8000/api/posts',
-      posts: []
+      apiUrl: 'http://127.0.0.1:8000/api/posts?page=',
+      posts: [],
+      pagination: {}
     };
   },
   methods: {
     getPosts: function getPosts() {
       var _this = this;
 
-      axios.get(this.apiUrl).then(function (response) {
-        _this.posts = response.data;
+      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+      axios.get(this.apiUrl + page).then(function (response) {
+        _this.posts = response.data.data;
+        _this.pagination = {
+          current: page,
+          last: response.data.last_page
+        };
       });
     },
     truncatesTextAt: function truncatesTextAt(text, numberChars) {
@@ -2557,22 +2568,28 @@ var render = function () {
   return _c(
     "main",
     { staticClass: "container blog" },
-    _vm._l(_vm.posts, function (post) {
-      return _c("article", { key: post.id }, [
-        _c("h2", [
-          _c("a", { attrs: { href: "" } }, [
-            _vm._v(_vm._s(_vm.truncatesTextAt(post.title, 20))),
+    [
+      _vm._l(_vm.posts, function (post) {
+        return _c("article", { key: post.id }, [
+          _c("h2", [
+            _c("a", { attrs: { href: "" } }, [
+              _vm._v(_vm._s(_vm.truncatesTextAt(post.title, 20))),
+            ]),
           ]),
-        ]),
-        _vm._v(" "),
-        _c("span", { staticClass: "date" }, [
-          _vm._v(_vm._s(_vm.getDatePost(post.created_at))),
-        ]),
-        _vm._v(" "),
-        _c("p", [_vm._v(_vm._s(_vm.truncatesTextAt(post.content, 50)))]),
-      ])
-    }),
-    0
+          _vm._v(" "),
+          _c("span", { staticClass: "date" }, [
+            _vm._v(_vm._s(_vm.getDatePost(post.created_at))),
+          ]),
+          _vm._v(" "),
+          _c("p", [_vm._v(_vm._s(_vm.truncatesTextAt(post.content, 50)))]),
+        ])
+      }),
+      _vm._v(" "),
+      _c("button", { staticClass: "btn" }, [_vm._v("Prev")]),
+      _vm._v(" "),
+      _c("button", { staticClass: "btn" }, [_vm._v("Next")]),
+    ],
+    2
   )
 }
 var staticRenderFns = []

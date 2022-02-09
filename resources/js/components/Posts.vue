@@ -1,5 +1,6 @@
 <template>
    <main class="container blog">
+
       <article 
          v-for="post in posts"
          :key = "post.id"
@@ -8,6 +9,10 @@
          <span class="date">{{ getDatePost(post.created_at) }}</span>
          <p>{{ truncatesTextAt(post.content, 50) }}</p>
       </article>
+
+      <button class="btn">Prev</button>
+      <button class="btn">Next</button>
+      
    </main>
 </template>
 
@@ -19,16 +24,21 @@ export default {
    },
    data() {
       return {
-         apiUrl: 'http://127.0.0.1:8000/api/posts',
+         apiUrl: 'http://127.0.0.1:8000/api/posts?page=',
          posts: [],
+         pagination: {},
       }
    },
    methods: {
 
-      getPosts() {
-         axios.get(this.apiUrl)
+      getPosts(page = 1) {
+         axios.get(this.apiUrl + page)
             .then(response => {
-               this.posts = response.data;
+               this.posts = response.data.data;
+               this.pagination = {
+                  current: page,
+                  last: response.data.last_page,
+               }
             })
       },
 
