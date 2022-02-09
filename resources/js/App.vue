@@ -1,15 +1,21 @@
 <template>
    <div>
-      <h1>Home Vue</h1>
+      <Header />
    </div>
 </template>
 
+
 <script>
+import Header from './components/partials/Header.vue'
+
 export default {
    name: 'App',
+   components: {
+      Header
+   }
 }
 </script>
 
-<style>
+<style lang="scss">
 
 </style>

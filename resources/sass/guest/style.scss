@@ -1,6 +1,9 @@
+@import './utilities';
+@import './mixins';
 @import './general';
 
 body {
-   background-color: beige;
+   background-color: #23272E;
    font-family: monospace;
+   color: white;
 }
