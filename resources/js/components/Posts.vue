@@ -27,6 +27,14 @@
                :class="{ active: pagination.current !== 1 }"
             >Prev</button>
             <button 
+               v-for="indexPage in pagination.last"
+               :key="'page' + indexPage"
+               @click="getPosts(indexPage)"
+               :disabled="indexPage === pagination.current"
+               class="btn"
+               :class="{ active: indexPage !== pagination.current }"
+            >{{ indexPage }}</button>
+            <button 
                @click="getPosts(pagination.current + 1)"
                class="btn"
                :class="{ active: pagination.current !== pagination.last }"

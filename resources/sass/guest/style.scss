@@ -10,6 +10,7 @@ body {
 }
 
 .btn {
+   margin-right: 5px;
    border-radius: 6px;
    border: none;
    padding: 6px;
@@ -19,7 +20,7 @@ body {
    font-size: 1.4em;
    transition: all .3s;
    &.active {
-
+      cursor: pointer;
       &:hover {
          color: #fff;
          background-color: #23272E;
