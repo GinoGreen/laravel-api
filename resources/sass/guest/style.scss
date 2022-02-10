@@ -28,6 +28,14 @@ body {
    }
 }
 
+.tag {
+   display: inline-block;
+   border-radius: 6px;
+   background-color: darkcyan;
+   color: #23272E;
+   margin-right: 7px;
+}
+
 header {
    background-color: white;
    ul {

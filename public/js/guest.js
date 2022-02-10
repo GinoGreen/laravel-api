@@ -2000,6 +2000,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Posts',
@@ -2649,7 +2656,7 @@ var render = function () {
             "div",
             [
               _vm._l(_vm.posts, function (post) {
-                return _c("article", { key: post.id }, [
+                return _c("article", { key: "post" + post.id }, [
                   _c("h2", [
                     _c("a", { attrs: { href: "" } }, [
                       _vm._v(_vm._s(_vm.truncatesTextAt(post.title, 20))),
@@ -2659,6 +2666,19 @@ var render = function () {
                   post.category
                     ? _c("p", [_vm._v(_vm._s(post.category.name))])
                     : _vm._e(),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "tags" },
+                    _vm._l(post.tags, function (tag) {
+                      return _c(
+                        "span",
+                        { key: "tag" + tag.id, staticClass: "tag" },
+                        [_vm._v(_vm._s(tag.name))]
+                      )
+                    }),
+                    0
+                  ),
                   _vm._v(" "),
                   _c("span", { staticClass: "date" }, [
                     _vm._v(_vm._s(_vm.getDatePost(post.created_at))),

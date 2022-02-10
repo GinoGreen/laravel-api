@@ -4,10 +4,17 @@
       <div v-if="posts">
          <article 
             v-for="post in posts"
-            :key = "post.id"
+            :key="`post${post.id}`"
          >
             <h2><a href="">{{ truncatesTextAt(post.title, 20) }}</a></h2>
             <p v-if="post.category">{{ post.category.name }}</p>
+            <div class="tags">
+               <span 
+                  v-for="tag in post.tags"
+                  :key="`tag${tag.id}`"
+                  class="tag"
+               >{{ tag.name }}</span>
+            </div>
             <span class="date">{{ getDatePost(post.created_at) }}</span>
             <p>{{ truncatesTextAt(post.content, 50) }}</p>
          </article>
