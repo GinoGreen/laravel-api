@@ -10,8 +10,8 @@
             <p v-if="post.category">{{ post.category.name }}</p>
             <div class="tags">
                <span 
-                  v-for="tag in post.tags"
-                  :key="`tag${tag.id}`"
+                  v-for="(tag, index) in post.tags"
+                  :key="index"
                   class="tag"
                >{{ tag.name }}</span>
             </div>

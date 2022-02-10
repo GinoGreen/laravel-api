@@ -2670,12 +2670,10 @@ var render = function () {
                   _c(
                     "div",
                     { staticClass: "tags" },
-                    _vm._l(post.tags, function (tag) {
-                      return _c(
-                        "span",
-                        { key: "tag" + tag.id, staticClass: "tag" },
-                        [_vm._v(_vm._s(tag.name))]
-                      )
+                    _vm._l(post.tags, function (tag, index) {
+                      return _c("span", { key: index, staticClass: "tag" }, [
+                        _vm._v(_vm._s(tag.name)),
+                      ])
                     }),
                     0
                   ),
