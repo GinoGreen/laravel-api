@@ -102,7 +102,7 @@ class PostController extends Controller
             $form_data['slug'] = Post::generateUniqueSlug($form_data['title']);
         }
         $post->update($form_data);
-
+        
         if (array_key_exists('tags', $form_data)) {
             $post->tags()->sync($form_data['tags']);
         } else {

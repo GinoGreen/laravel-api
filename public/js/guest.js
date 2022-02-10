@@ -1971,6 +1971,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Posts',
   mounted: function mounted() {
@@ -2587,6 +2590,10 @@ var render = function () {
             ]),
           ]),
           _vm._v(" "),
+          post.category
+            ? _c("p", [_vm._v(_vm._s(post.category.name))])
+            : _vm._e(),
+          _vm._v(" "),
           _c("span", { staticClass: "date" }, [
             _vm._v(_vm._s(_vm.getDatePost(post.created_at))),
           ]),
@@ -2600,6 +2607,7 @@ var render = function () {
           "button",
           {
             staticClass: "btn",
+            class: { active: _vm.pagination.current !== 1 },
             attrs: { disabled: _vm.pagination.current === 1 },
             on: {
               click: function ($event) {
@@ -2614,6 +2622,7 @@ var render = function () {
           "button",
           {
             staticClass: "btn",
+            class: { active: _vm.pagination.current !== _vm.pagination.last },
             attrs: { disabled: _vm.pagination.current === _vm.pagination.last },
             on: {
               click: function ($event) {

@@ -10,7 +10,9 @@
          </div>
          <div class="card-body">
             <h4 class="card-title">{{ $post->title }}</h4>
-            <h5>Categoria: {{ $post->category->name }}</h5>
+            @if ($post->category)
+               <h5>Categoria: {{ $post->category->name }}</h5>
+            @endif
             @foreach ($post->tags as $tag)
                <span class="badge bg-info text-dark">{{ $tag->name }}</span>
             @endforeach
